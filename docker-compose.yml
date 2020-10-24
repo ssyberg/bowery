@@ -1,0 +1,18 @@
+version: "3.8"
+   
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=adventure
+      - POSTGRES_USER=adv_user
+      - POSTGRES_PASSWORD=lsdkjfw93idj!ks
+  web:
+    build: .
+    command: ["./wait-for-it.sh", "db:5432", "--", "./docker-entrypoint.sh"]
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
