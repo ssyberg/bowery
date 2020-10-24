@@ -2,7 +2,8 @@
 
 # Apply database migrations
 echo "Apply database migrations"
-python manage.py migrate --no-input
+python manage.py migrate background_task
+python manage.py migrate
 
 # Apply database migrations
 echo "Start task processor"

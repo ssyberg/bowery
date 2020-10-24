@@ -15,12 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from api.tasks import upload_images
 
 urlpatterns = [
     path('', include('api.urls')),
     path('admin/', admin.site.urls),
 ]
 
-# Start the background task
-upload_images(repeat=60,repeat_until=None)

@@ -9,3 +9,7 @@ from .models import Image
 class ImageViewSet(viewsets.ModelViewSet):
     queryset = Image.objects.all().order_by('id')
     serializer_class = ImageSerializer
+
+    # Uncomment this in production, leaving get
+    # available for testing
+    # http_method_names = ['post']
